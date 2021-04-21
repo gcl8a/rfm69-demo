@@ -78,7 +78,9 @@ void loop()
     SerialUSB.println(lastSend);
 
     lastSend = millis();
-    char sendStr1[] = "214:5.00:219\n";
-    radio.send(SENDTOID, sendStr1, strlen(sendStr1));
+    char sendString[20];
+    sprintf(sendString, "From %i to %i\n", MYNODEID, SENDTOID);
+    //char sendStr1[] = "214:5.00:219\n";
+    radio.send(SENDTOID, sendString, strlen(sendString));
   }
 }
