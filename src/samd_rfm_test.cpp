@@ -39,7 +39,7 @@ RFM69 radio(RFM69_CS, RFM69_INT, false, digitalPinToInterrupt(RFM69_INT));
 void setup()
 {
   // Open a serial port so we can send keystrokes to the module:
-  SerialUSB.begin(57600);
+  SerialUSB.begin(115200);
   //while(!SerialUSB) {} //COMMENT OUT TO RUN WITHOUT REQUIRING SERIAL
   SerialUSB.println("Hello");
 
@@ -73,7 +73,7 @@ void loop()
   }
 
   static unsigned long lastSend = 0;
-  if(millis() - lastSend > 10000)
+  if(millis() - lastSend > 2000)
   {
     SerialUSB.println(lastSend);
 
